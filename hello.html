@@ -1,1 +1,41 @@
-Hello, World
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        
+        <meta charset="UTF-8" >
+        <title>TOPMARIUPOL Top Mariupol</title>
+        <style>
+            .bold { 
+            font-weight:bold;
+            }
+            .user
+            {
+                width: 150px;
+float: left;
+            }
+        </style> 
+    </head>
+    <body>
+        <div style="width:50%;float:left;" id="left">
+            <span id="name" style="font-weight:bold; font-size:20px;"></span><br>
+            <span class="bold"> Description:</span><span id="descrp"></span><br>
+            <span class="bold">Watchers:</span> <span id="watchers"></span><br>
+            <span class="bold">Forks: </span><span id="forks"></span><br>
+            <span class="bold">Open issues: </span><span id="op_issues"></span><br>
+            <span class="bold">Homepage: </span><a href="#" target="_blank" id="homepage">Visit homepage</a><br>
+        <span class="bold">GitHub Repo: </span><a href="#" target="_blank" id="repo"></a><br>
+            <span class="bold">Created at: </span><span id="created"></span>
+        </div>
+        <div style="width:50%;float:left;" id="right">
+            <span style="font-weight:bold; font-size:20px;">Contributors</span><br>
+            
+        </div>
+       <br>
+        <div style="width:100%;float:left;"> <input type="text" placeholder="Text to search"/>
+        <input type="button" value="Search"/>
+        </div>
+        <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+        <script src="custom.js"></script>  
+        
+    </body>
+</html>
