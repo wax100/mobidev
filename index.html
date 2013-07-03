@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        
+        <meta charset="UTF-8" >
+        <title>MobiDev Test Task</title>
+        
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        
+        <script src="js/likes.js.?v=1"></script>  
+        <script src="js/custom.js?v=1"></script>  
+    </head>
+    <body>
+        <div class="container">
+           <div class="row  well" style="margin-top:50px; margin-left: 0px;">
+                <div class="span6" style="margin-left: 0px; margin-right: -50px;"> 
+                <h4 style="margin: 5px 0;"><a href="index.html" >Test Task</a></h4></div>
+                
+                <div class="span6" style="margin-left: 0px; "> 
+                    <form ACTION="search.html" METHOD="POST"> 
+                        <input type="submit" class="btn" value="Search" style="float:right;"/>
+                        <input type="text" placeholder="Text to search" class="search-query" style="float:right;"/>
+                    </form>
+                </div>
+            </div>
+            <div class="row " style="margin-top:50px;">
+                
+                <div class="span6" id="left" style="border-right: 2px solid #ccc; margin-right: -10px;">
+                    <h2 id="name"></h2><br>
+                    <div class="row">
+                        <div class="span3">
+                            <ul>
+                                <li><span class="label label-info"> Description:</span> </li>
+                                <li><span class="label label-info">Watchers:</span> </li>
+                                <li><span class="label label-info">Forks: </span> </li>
+                                <li><span class="label label-info">Open issues: </span></li>
+                                <li><span class="label label-info">Homepage: </span> </li>
+                                <li><span class="label label-info">GitHub Repo: </span> </li>
+                                <li><span class="label label-info">Created at: </span></li>
+                            </ul>
+                        </div>
+                        <div class="span3" style="margin-left: -100px;">
+                            <ul>
+                                <li>  <span id="descrp"></span></li>
+                                <li> <span id="watchers"></span></li>
+                                <li> <span id="forks"></span></li>
+                                <li> <span id="op_issues"></span></li>
+                                <li> <a href="#" target="_blank" id="homepage"></a></li>
+                                <li><a href="#" target="_blank" id="repo"></a></li>
+                                <li> <span id="created"></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="span6" id="right">
+                    <h2>Contributors</h2><br>
+
+                    <div class="row">
+                        <div class="span3">
+                            <ul id="list_contr">
+
+                            </ul>
+                        </div>
+                        <div class="span3" style="margin-left: -100px;">
+                            <ul id="contr_stat">
+
+                            </ul>
+                        </div>
+                    </div>
+               
+                </div>
+            </div>
+            
+            
+        </div>
+        
+        
+    </body>
+</html>

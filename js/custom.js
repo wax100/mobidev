@@ -1,9 +1,11 @@
-$(document).ready(function() {
+$(document).ready(function() 
+{
     $.ajax({
         type: "GET",
         url: 'https://api.github.com/users/yiisoft/repos',
         
-        success: function (data){
+        success: function (data)
+        {
             var yii = data[0];
             $('#name').text(data[0].full_name);
             $('#descrp').text(data[0].description);
@@ -20,6 +22,8 @@ $(document).ready(function() {
     
     
     var users= Array();
+    var out='';
+    var out2='';
     
     $.ajax({
         type: "GET",
@@ -27,45 +31,48 @@ $(document).ready(function() {
         // data: {slice :"(0, 10)"},
         success: function (data)
         {
-            var out='';
             for (var i=0; i<5; i++)
             {
                 users.push(data[i].id);
-                out=out+'<div class="user"><a href ="'+data[i].url+'" id="'+data[i].id+'" target="_blank">'+data[i].login+'</a></div><a class="like" href="#"></a><br>';
+                out=out+'<li><span><a  href ="/userinfo.html?&id='+data[i].login+'" id="'+data[i].id+'">'+data[i].login+'</a></span></li>';
+                out2=out2+'<li><a class="btn" href ="#" data-type="User" data-action="'+data[i].id+'" id="stat_'+data[i].id+'" ></a></li>';
             }
-            console.log(users);
-            var ht = $('#right').html() + out;
-            $('#right').html(ht);
+            $('#list_contr').append(out);
+            $('#contr_stat').append(out2);
+
         },
         complete: function( jqXHR, textStatus )
         {
             $.ajax({
                 type: "GET",
                 url: 'getLikes.php',
-                data: {users: users},
-               // dataType: 'json',
+                data: {users: users, type:'User'},
                 success: function (data)
                 {
                     var getdata = $.parseJSON(data);
-                    var st ='';
+                    var out='';
                     for (var i=0; i<getdata.length;i++)
                     {
-                       st ='';
-                       if (getdata[i].status)
-                       {
-                        st ='Unlike'
-                       }
-                       else
-                       {
-                        st ='Like'
-                       }
-                       $('#'+getdata[i].id).parent().next().html(st);
+                        st ='';
+                        if (getdata[i].status)
+                        {
+                            $('#stat_'+getdata[i].id).addClass('btn-danger');
+                            $('#stat_'+getdata[i].id).html('Unlike');
+                        }
+                        else
+                        {
+                            $('#stat_'+getdata[i].id).addClass('btn-success');
+                            $('#stat_'+getdata[i].id).html('Like');
+                        }
                     }
                 }
             });
         }
-        
     }); 
-    
+$(document).on('click', 'a.btn', function() 
+    {
+        likes($(this).html(), $(this).data('action'),$(this).data('type') );
+        return false;
+    });
     
 });
